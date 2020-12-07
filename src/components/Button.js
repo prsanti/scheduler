@@ -5,7 +5,8 @@ import classNames from 'classnames/bind';
 export default function Button(props) {
    const buttonClass = classNames("button", {
       "button--confirm": props.confirm,
-      "button--danger": props.danger
+      "button--danger": props.danger,
+      "day-list__item--full" : !(props.spots)
     });
 
    return <button
