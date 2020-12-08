@@ -9,16 +9,13 @@ import "components/InterviewListItem.scss";
 // selected:boolean - to determine if an interview is selected or not
 // setInterviewer:function - sets the interviewer upon selection
 
-export default function InterviewListItem(props) {
+export default function InterviewerListItem(props) {
   const interviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected" : props.selected
   });
 
-  return(
-    <li 
-      className={interviewerClass}
-      onClick={() => props.setInterviewer(props.id)}
-    >
+  return (
+    <li className={interviewerClass} onClick={props.setInterviewer}>
       <img
         className="interviewers__item-image"
         src={props.avatar}
@@ -26,7 +23,5 @@ export default function InterviewListItem(props) {
       />
       {props.selected && props.name}
     </li>
-  )
+  );
 };
-
-
