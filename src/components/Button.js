@@ -6,7 +6,7 @@ export default function Button(props) {
    const buttonClass = classNames("button", {
       "button--confirm": props.confirm,
       "button--danger": props.danger,
-      "day-list__item--full" : !(props.spots)
+      "day-list__item--full" : props.spots
     });
 
    return <button
