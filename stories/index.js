@@ -149,7 +149,7 @@ storiesOf("Appointment", module)
   .add("Status", () => <Status message="Deleting" />)
   .add("Error", () => <Error  message="Could not delete appointment." onClose={action("onClose")} />)
   .add("Create", () => <Form name="" interviewers={interviewers} interviewer={null} onSave={action("onSave")} onCancel={action("onCancel")}/>)
-  .add("Edit", () => <Form name="Archie Cohen" interviewers={interviewers} interviewer={1} onSave={action("onSave")} onCancel={action("onCancel")} />)
+  .add("Edit", () => <Form name="Archie Cohen" interviewers={interviewers} interviewer={1} onSave={action("onSave")} onCancel={action("onCancel")}/>)
   
 
 //   As part of our Edit story, the Form component should take the following props:
