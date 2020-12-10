@@ -122,7 +122,7 @@ export default function Application(props) {
   // console.log(state.day);
   // console.log({"days": [state.days], "appointments": [state.appointments]});
   // const test = {"days": [state.days], "appointments": [state.appointments]}; 
-  const dailyAppointments = [];
+  let dailyAppointments = [];
   dailyAppointments = getAppointmentsForDay(state, state.day);
 
   return (
