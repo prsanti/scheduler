@@ -1,4 +1,4 @@
-export const getAppointmentsForDay = (state, day) => {
+const getAppointmentsForDay = (state, day) => {
   let appointmentsList = [];
   for (const days of state.days) {
     if (days.name === day) {
@@ -15,3 +15,5 @@ export const getAppointmentsForDay = (state, day) => {
   });
   return appointmentsListDetails;
 };
+
+export { getAppointmentsForDay };
