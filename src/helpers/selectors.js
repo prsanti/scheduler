@@ -1,4 +1,4 @@
-const getAppointmentsForDay = (state, day) => {
+function getAppointmentsForDay(state, day) {
   let appointmentsList = [];
   for (const days of state.days) {
     if (days.name === day) {
