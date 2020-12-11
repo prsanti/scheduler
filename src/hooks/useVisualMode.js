@@ -4,17 +4,27 @@ export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
 
-  function transition(newMode) {
-    setMode(newMode);
-    setHistory([...history, newMode]);
+  function transition(newMode, replace = false) {
+    // [FIRST, SECOND, THIRD]
+    // replace = false --> [FIRST, SECOND, THIRD]
+    // replace == true [FIRST, SECOND, THIRD] --> [FIRST, THIRD]
+    // Remove SECOND, set mode to THIRD
+    // slice?
+    if (replace) {
+      setHistory([...history.slice(0, history.length - 1), newMode]);
+      setMode(newMode);
+    } else {
+      setMode(newMode);
+      setHistory([...history, newMode]);
+    }
   };
+  console.log("new history: :", history)
 
-  // [FIRST, SECOND, THIRD]
-  // slice [FIRST, SECOND, THIRD]   --> [FIRST, SECOND]
-  // setMode [FIRST, SECOND, THIRD] --> [SECOND]
   function back() {
-    setHistory(history.slice(0, history.length - 1));
-    setMode(history[history.length - 2]);
+    if (history.length > 1) {
+      setHistory(history.slice(0, history.length - 1));
+      setMode(history[history.length - 2]);
+    }
   };
 
   return { mode, transition, back };
