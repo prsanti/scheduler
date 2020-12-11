@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
-import { getAppointmentsForDay, getInterview }from "../helpers/selectors.js"
+import { getAppointmentsForDay, getInterview, getInterviewersForDay }from "../helpers/selectors.js"
 
 import axios from "axios";
 
@@ -27,6 +27,7 @@ export default function Application(props) {
 
 
   const appointments = getAppointmentsForDay(state, state.day);
+  const interviewers = getInterviewersForDay(state, state.day);
 
   const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -37,6 +38,7 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        interviewers={interviewers}
       />
     );
   });
