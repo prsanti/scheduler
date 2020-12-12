@@ -48,7 +48,7 @@ export default function Application(props) {
     return axios.put(`/api/appointments/${id}`, { interview: interview });
   };
 
-  function deleteInterview(id, interview) {
+  function cancelInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
       interview: null
@@ -78,7 +78,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
-        deleteInterview={deleteInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });
@@ -107,7 +107,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {schedule}
-        <Appointment key="last" time="5pm" bookInterview={bookInterview} deleteInterview={deleteInterview} />
+        <Appointment key="last" time="5pm" bookInterview={bookInterview} cancelInterview={cancelInterview} />
       </section>
     </main>
   );
