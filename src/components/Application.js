@@ -46,7 +46,25 @@ export default function Application(props) {
     });
 
     return axios.put(`/api/appointments/${id}`, { interview: interview });
+  };
 
+  function deleteInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    setState({
+      ...state,
+      appointments
+    });
+
+    return axios.delete(`/api/appointments/${id}`, { interview: interview })
   };
 
   const schedule = appointments.map((appointment) => {
@@ -60,6 +78,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        deleteInterview={deleteInterview}
       />
     );
   });
@@ -88,7 +107,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {schedule}
-        <Appointment key="last" time="5pm" bookInterview={bookInterview} />
+        <Appointment key="last" time="5pm" bookInterview={bookInterview} deleteInterview={deleteInterview} />
       </section>
     </main>
   );
