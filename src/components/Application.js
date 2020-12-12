@@ -30,8 +30,6 @@ export default function Application(props) {
   const interviewers = getInterviewersForDay(state, state.day);
 
   function bookInterview(id, interview) {
-    console.log("book interview: ", id, "int: ", interview);
-
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }

@@ -27,16 +27,6 @@ export default function Appointment(props) {
       interviewer
     };
 
-    console.log("props:", props);
-    console.log("props id", props.id);
-    console.log("interview: ", interview);
-    console.log("test: ", props.bookInterview(props.id, interview));
-    console.log("test props: ", props.bookInterview);
-
-    // props.bookInterview(props.id, interview)
-    //   .then(() => {
-    //     transition(SHOW);
-    //   })
     props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
   };
