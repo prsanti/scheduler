@@ -43,9 +43,11 @@ export default function Application(props) {
     };
 
     setState({
-      ...state,
+      ...state, 
       appointments
     });
+
+    return axios.put(`/api/appointments/${id}`, { interview: interview });
 
   };
 
