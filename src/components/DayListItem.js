@@ -4,9 +4,7 @@ import classNames from 'classnames/bind';
 
 
 export default function DayListItem(props) {
-
-  const spots = props.spots;
-  const spotsRemaining = () => {
+  const spotsRemaining = (spots) => {
     if (spots === 1) {
       return `${spots} spot remaining`;
     } else if (spots > 1) {
@@ -15,7 +13,8 @@ export default function DayListItem(props) {
       return `No spots remaining`;
     }
   };
-  // console.log("test", spots);
+
+  const spotsRemainingStr = spotsRemaining(props.spots);
   
   const dayClass = classNames("day-list__item", {
     "day-list__item--selected" : props.selected,
@@ -27,7 +26,7 @@ export default function DayListItem(props) {
       className={dayClass}
     >
         <h2 className="text--regular">{props.name}</h2> 
-        <h3 className="text--light">{spotsRemaining()}</h3>
+        <h3 className="text--light">{spotsRemainingStr}</h3>
     </li>
   );
 }
