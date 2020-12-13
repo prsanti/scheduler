@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from 'classnames/bind';
 import "components/InterviewerList.scss";
 import InterviewerListItem from "components/InterviewListItem"
 
@@ -27,4 +26,4 @@ export default function InterviewerList(props) {
       <ul className="interviewers__list">{interviewers}</ul>
     </section>
   );
-};
+}
