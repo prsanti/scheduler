@@ -10,22 +10,32 @@ afterEach(cleanup);
 //   render(<Application />);
 // });
 
-it("defaults to Monday and changes the schedule when a new day is selected", () => {
+// it("defaults to Monday and changes the schedule when a new day is selected", () => {
 
-  const { getByText, debug } = render(<Application />);
-  // console.log("test");
-  //debug();
-  return waitForElement(() => getByText("Monday"));
-});
+//   const { getByText, debug } = render(<Application />);
+//   // console.log("test");
+//   //debug();
+//   return waitForElement(() => getByText("Monday"));
+// });
 
-it("defaults to Monday and changes the schedule when a new day is selected", () => {
+// it("defaults to Monday and changes the schedule when a new day is selected", () => {
+//   const { getByText } = render(<Application />);
+
+//   return waitForElement(() => getByText("Monday")).then(() => {
+//     //console.log("test");
+//     fireEvent.click(getByText("Tuesday"));
+//     expect(getByText("Leopold Silvers")).toBeInTheDocument();
+//   });
+// });
+
+it("changes the schedule when a new day is selected", async () => {
   const { getByText } = render(<Application />);
 
-  return waitForElement(() => getByText("Monday")).then(() => {
-    //console.log("test");
-    fireEvent.click(getByText("Tuesday"));
-    expect(getByText("Leopold Silvers")).toBeInTheDocument();
-  });
+  await waitForElement(() => getByText("Monday"));
+
+  fireEvent.click(getByText("Tuesday"));
+
+  expect(getByText("Leopold Silvers")).toBeInTheDocument();
 });
 
 // describe("Application", () => {
