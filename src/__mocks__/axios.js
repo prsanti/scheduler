@@ -82,13 +82,10 @@ export default {
       });
     }
   }),
-  put: jest.fn((url, appointment) => {
-    // appointment = fixtures.appointments[appointment.id];
-    if (url === "http://localhost:8001/api/appointments") {
+  put: jest.fn(() => {
       return Promise.resolve({
         status: 204,
         statusText: "No content",
       });
-    }
   })
 }
