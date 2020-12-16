@@ -72,10 +72,8 @@ export default function useApplicationData() {
       day.appointments.map(appointment => {
         // if the new appointment is equal to the id, change the state of spots
         if (id === appointment) {
-          console.log("before: ", day.spots);
           const newDaySpots = day.spots + 1;
           day.spots = newDaySpots;
-          console.log("after: ", day.spots);
         }
       })
     });
