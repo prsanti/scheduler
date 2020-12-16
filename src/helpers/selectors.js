@@ -12,7 +12,7 @@ function getAppointmentsForDay(state, day) {
   const appointments = dayFound.appointments.map(appointmentId => state.appointments[appointmentId]);
 
   return appointments;
-};
+}
 
 function getInterviewersForDay(state, day) {
   // get the day object
@@ -34,7 +34,7 @@ function getInterviewersForDay(state, day) {
   const interviewersList = interviewerIds.map(interviewerId => state.interviewers[interviewerId]);
 
   return interviewersList;
-};
+}
 
 function getInterview(state, interview) {
   const result = {};
@@ -46,6 +46,6 @@ function getInterview(state, interview) {
   result.interviewer = state.interviewers[interviewerId];
   return result;
 
-};
+}
 
 export { getAppointmentsForDay, getInterview, getInterviewersForDay };

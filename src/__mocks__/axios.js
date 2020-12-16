@@ -56,6 +56,7 @@ let fixtures = {
 };
 
 export default {
+  // reset fixtures functionality
   resetFixtures: () => fixtures = resetFixtures(),
   get: jest.fn(url => {
     if (url === "http://localhost:8001/api/days") {

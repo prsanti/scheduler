@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 // setInterviewer:function - a function that accepts an interviewer id
 
 function InterviewerList(props) {
+  // creates the list of interviewers component when booking an appointment
   const interviewers = props.interviewers.map(interviewer => {
     return (
       <InterviewerListItem
@@ -27,11 +28,10 @@ function InterviewerList(props) {
       <ul className="interviewers__list">{interviewers}</ul>
     </section>
   );
-};
+}
 
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
-  // interviewers: PropTypes.bool
 };
 
 export default InterviewerList;

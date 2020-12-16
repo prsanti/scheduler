@@ -14,6 +14,7 @@ export default function DayListItem(props) {
     }
   };
 
+  // creates a string props for the remaining spots
   const spotsRemainingStr = spotsRemaining(props.spots);
   
   const dayClass = classNames("day-list__item", {

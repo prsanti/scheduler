@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
@@ -32,6 +32,7 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
+    // get the state of days and their props
     const days = [...state.days];
     // checks if there is no appointment for each time slot
     days.map(day => {
@@ -45,6 +46,7 @@ export default function useApplicationData() {
       })
     });
     
+    // updates the api with the new appointment and spots remaining
     return axios.put(`/api/appointments/${id}`, appointment)
       .then(() => {
         setState({
@@ -53,9 +55,9 @@ export default function useApplicationData() {
           days
         });
       })
-  };
+  }
 
-  function cancelInterview(id, interview) {
+  function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
       interview: null
@@ -78,6 +80,7 @@ export default function useApplicationData() {
       })
     });
 
+    // updates the api with the deleted appointment and spots remaining
     return axios.delete(`/api/appointments/${id}`, appointment)
       .then(() => {
         setState({
@@ -86,7 +89,7 @@ export default function useApplicationData() {
           days
         });
       });
-  };
+  }
 
   return { state, setDay, bookInterview, cancelInterview };
-};
+}

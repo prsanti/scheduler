@@ -1,3 +1,4 @@
+// function that returns the original fixtures data
 export default function resetFixtures() {
   return {
     days: [
@@ -53,4 +54,4 @@ export default function resetFixtures() {
       }
     }
   }
-};
+}

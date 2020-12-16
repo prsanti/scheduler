@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import "./styles.scss";
 import useVisualMode from "../../hooks/useVisualMode";
 
@@ -13,7 +13,6 @@ import Error from "./Error";
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
-const DELETE = "DELETE";
 const SAVING = "SAVING";
 const DELETING = "DELETING";
 const CONFIRM = "CONFIRM";
@@ -26,8 +25,9 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  // save interview function
+  // transition to saving card, then books the interview and shows it
   const save = (name, interviewer) => { 
-
     transition(SAVING, true);
 
     const interview = {
@@ -40,6 +40,7 @@ export default function Appointment(props) {
       .catch(error => transition(ERROR_SAVE, true));
   };
 
+  // delete interview function
   const destroy = (name, interviewer) => {
     transition(DELETING, true);
 
@@ -53,12 +54,13 @@ export default function Appointment(props) {
       .catch(error => transition(ERROR_DELETE, true));
   };
 
+  // confirm changes
   const confirm = () => {
     transition(CONFIRM);
   };
 
+  // edit function
   const edit = () => {
-    // console.log("props test: ", props.interview.interviewer.id)
     transition(EDIT);
   };
 

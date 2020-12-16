@@ -14,8 +14,10 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
 
+  // set the interviewers for the selected day
   const interviewers = getInterviewersForDay(state, state.day);
 
+  // set the appointments for the selected day and returns an Appointment component with that data
   const appointments = getAppointmentsForDay(state, state.day).map(
     appointment => {
       return (
