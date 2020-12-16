@@ -31,15 +31,15 @@ npm run cypress
 ```
 ## Final Product
 # Homepage
-!["Screenshot of homepage"]
+!["Screenshot of homepage"](https://github.com/prsanti/scheduler/blob/master/docs/homepage.png)
 # Booking an Appointment
-!["Screenshot of booking an appointment"]
+!["Screenshot of booking an appointment"](https://github.com/prsanti/scheduler/blob/master/docs/create-appointment.png)
 # Booked Appointment
-!["Screenshot of booked appointment"]
+!["Screenshot of booked appointment"](https://github.com/prsanti/scheduler/blob/master/docs/booked-appointment.png)
 # Change Day
-!["Screenshot of day change"]
+!["Screenshot of day change"](https://github.com/prsanti/scheduler/blob/master/docs/change-days.png)
 # Mobile View
-!["Screenshot of mobile view"]
+!["Screenshot of mobile view"](https://github.com/prsanti/scheduler/blob/master/docs/mobile-view.png)
 
 ## Dependencies
 - Axios
