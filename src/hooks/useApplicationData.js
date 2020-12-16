@@ -37,14 +37,15 @@ export default function useApplicationData() {
     days.map(day => {
       day.appointments.map(appointment => {
         // if the new appointment is equal to the id, change the state of spots
-        if (id === appointment) {
+        // also checks if the appointment already exists when editing
+        if (id === appointment && !state.appointments[id].interview) {
           const newDaySpots = day.spots - 1;
           day.spots = newDaySpots;
         }
       })
     });
     
-    return axios.put(`/api/appointments/${id}`, { interview: interview })
+    return axios.put(`/api/appointments/${id}`, appointment)
       .then(() => {
         setState({
           ...state, 
@@ -70,14 +71,15 @@ export default function useApplicationData() {
     days.map(day => {
       day.appointments.map(appointment => {
         // if the new appointment is equal to the id, change the state of spots
-        if (id === appointment) {
+        // also checks if the appointment already exists when editing
+        if (id === appointment && !state.appointments[id].interview) {
           const newDaySpots = day.spots + 1;
           day.spots = newDaySpots;
         }
       })
     });
 
-    return axios.delete(`/api/appointments/${id}`, { interview: interview })
+    return axios.delete(`/api/appointments/${id}`, appointment)
       .then(() => {
         setState({
           ...state,

@@ -6,10 +6,6 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-// xit("renders without crashing", () => {
-//   render(<Application />);
-// });
-
 it("changes the schedule when a new day is selected", async () => {
   const { getByText } = render(<Application />);
 
