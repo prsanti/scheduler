@@ -4,7 +4,10 @@ import { render, cleanup, fireEvent, waitForElement, prettyDOM, getByText, getAl
 
 import Application from "components/Application";
 
+import resetFixtures from "../../__mocks__/resetFixtures";
+
 afterEach(cleanup);
+// afterEach(resetFixtures);
 
 it("changes the schedule when a new day is selected", async () => {
   const { getByText } = render(<Application />);
@@ -16,7 +19,7 @@ it("changes the schedule when a new day is selected", async () => {
   expect(getByText("Leopold Silvers")).toBeInTheDocument();
 });
 
-xit("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
+it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
   const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
